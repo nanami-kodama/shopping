@@ -232,7 +232,48 @@ public class UserDAO {
 			return userlist;
 		}
 		
-		
+	//全ユーザー情報を取得
+        public ArrayList<User> selectAll() {
+            ArrayList<User> userlist = new ArrayList<User>();
+
+            Connection con = null;
+            Statement smt = null;
+            try {
+                con = getConnection();
+                smt = con.createStatement();
+
+                //検索用sql文
+                String sql = "SELECT * FROM userinfo";
+
+                ResultSet rs = smt.executeQuery(sql);
+
+                while (rs.next()) {
+                    User user = new User();
+                    user.setUser_id(rs.getString("user_id"));
+                    user.setUser_nickname(rs.getString("user_nickname"));
+                    user.setAuthority(rs.getString("authority"));
+
+                    userlist.add(user);
+                }
+
+            } catch (Exception e) {
+                throw new IllegalStateException(e);
+            } finally {
+                if (smt != null) {
+                    try {
+                        smt.close();
+                    } catch (SQLException ignre) {
+                    }
+                }
+                if (con != null) {
+                    try {
+                        con.close();
+                    } catch (SQLException ignore) {
+                    }
+                }
+            }
+            return userlist;
+        }	
 		
 		//ユーザーデータ検索
 		public ArrayList<User> search(String user_id) {
