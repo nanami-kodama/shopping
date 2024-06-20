@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 import bean.Items;
 
-public class itemsDAO {
+public class ItemsDAO {
 	
 	private static String RDB_DRIVE = "org.mariadb.jdbc.Driver";
 	private static String URL = "jdbc:mariadb://localhost/mybookdb";
