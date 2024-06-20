@@ -1,6 +1,9 @@
 package bean;
 
 public class Items {
+
+	//ユーザーIDを格納する変数
+	private String user_id;
 	
 	//商品番号を格納する変数
 	private String isbn;
@@ -22,6 +25,7 @@ public class Items {
 	
 	//コンストラクタ定義
 	public Items() {
+		this.user_id = null;
 		this.isbn = null;
 		this.item_name = null;
 		this.item_kana = null;
@@ -31,6 +35,13 @@ public class Items {
 	}
 	
 //	各フィールド変数のアクセサメソッド
+	public String getUser_id() {
+		return user_id;
+	}
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
+	}
+	
 	public String getIsbn() {
 		return isbn;
 	}
