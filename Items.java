@@ -1,6 +1,9 @@
 package bean;
 
 public class Items {
+
+	//ユーザーIDを格納する変数
+	private String user_id;
 	
 	//商品番号を格納する変数
 	private String isbn;
